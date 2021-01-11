@@ -1,0 +1,14 @@
+<div class="title-poster">
+    <h2> {{ focusedItem.title }} </h2>
+    <img src="{{focusedItem.poster}}" alt="{{focusedItem.name}}" style="width:45%; height:45%">
+</div>
+
+<div class="description">
+    <label> {{focusedItem.description}} </label>
+</div>
+
+<div class="providers">
+    <div ng-repeat="provider in focusedItem.providers">
+        <img ng-src="{{provider.iconUrl}}">
+    </div>
+</div>

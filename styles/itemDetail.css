@@ -1,0 +1,14 @@
+.title-poster {
+    float: left;
+    width: 45%;
+    border-style: solid;
+}
+
+.providers {
+    width: 45%;
+    float: right;
+}
+
+.description {
+    width: 10%;
+}

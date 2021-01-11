@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+
+    <!-- include CAPH 3.1.0 default package -->
+    <link href="lib/caph/3.1.0/caph.min.css" rel="stylesheet" type="text/stylesheet">
+    <link href="styles/main.css" rel="stylesheet" type="text/css">
+    <link href="styles/searchBar.css" rel="stylesheet" type="text/css">
+    <link href="styles/searchResults.css" rel="stylesheet" type="text/css">
+    <link href="styles/itemDetail.css" rel="stylesheet" type="text/css">
+    <!-- include jQuery file (you can use AngularJS & jQuery in your environment) -->
+    <script src="lib/caph/3.1.0/bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="lib/caph/3.1.0/bower_components/angular/angular.min.js" type="text/javascript"></script>
+    <script src="js/app.js" type="text/javascript"></script>
+
+    <!-- include hammer js for touch feature (uncomment to enable touch feature) -->
+    <!-- <script src="lib/caph/3.1.0/hammerjs/hammer.min.js" type="text/javascript"></script>  -->
+
+    <!-- include the CAPH Package for AngularJS -->
+    <script src="lib/caph/3.1.0/caph-angular.min.js" type="text/javascript"></script>
+
+</head>
+
+<body style="background-color: white;">
+
+    <div ng-controller="MainController">
+
+        <div class="header">
+            <h1> Streaming Where </h1>
+        </div>
+
+        <!-- <input ng-model="query"> -->
+
+        <div style="padding: 20px; height:500px">
+            
+            <div class="search-bar">
+                <ng-include src="getTemplatePath('searchbar')"></ng-include>
+            </div>
+
+            <div class="product-detail" style="width: 100%; height:90%;">
+                <ng-include src="getTemplatePath('itemdetail')" />
+            </div>          
+        </div>
+
+
+        <div class="container" style="align-items: center; position:fixed;">
+            <ng-include src="getTemplatePath('searchresults')" />
+        </div>
+
+
+
+        <div class="footer">
+            <ng-include src="getTemplatePath('footer')"> </ng-include>
+        </div>
+    </div>
+
+</body>
+
+</html>
