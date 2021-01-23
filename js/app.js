@@ -5,12 +5,8 @@ var imagesBaseUrl = "https://images.justwatch.com";
 var descriptionUrl = "https://apis.justwatch.com/content/titles/movie/{itemId}/locale/pt_BR?language=pt"
 var urlProviders = "https://apis.justwatch.com/content/providers/locale/pt_BR";
 
-
 var profile = "s166";
 var iconProviderProfile = "s100";
-
-
-
 
 app.controller('MainController', ['$scope', 'focusController', '$http', function ($scope, focusController, $http) {
 
@@ -19,7 +15,8 @@ app.controller('MainController', ['$scope', 'focusController', '$http', function
 
     $scope.selectedItemDescription = undefined;
     $scope.focusedItem = undefined;
-
+    $scope.firstResult = 0;
+    
     $scope.getTemplatePath = function (templateName) {
 
         var _templateName = templateName.toLowerCase();
@@ -73,12 +70,23 @@ app.controller('MainController', ['$scope', 'focusController', '$http', function
                     id: response.data.items[i].id
                 });
             };
-            console.log($scope.formatedResults)
-            $('caph-list').trigger('reload');
+            $('caph-list').trigger('reload');                                                            
         });
+        console.log('Entrou')
+        focusController.focus('0')
     };
 
-    $scope.loadDetails = function (item) {
+    
+    applyStyleOnSelected = function($event) {
+        $($event.currentTarget).css({
+            border: "5px solid black",
+            opacity: "0.7",
+            "border-radius": "20px"
+        });
+    }
+
+    $scope.loadDetails = function (item, $event) {
+        applyStyleOnSelected($event)
         $scope.focusedItem = item
         $http.get(descriptionUrl.replace('{itemId}', item.id)).then(function (response) {
             $scope.focusedItem.description = response.data.short_description === undefined ?
@@ -88,7 +96,6 @@ app.controller('MainController', ['$scope', 'focusController', '$http', function
     }
 
     formatQuery = function (queryName) {
-        console.log(queryName)
         if (queryName === undefined || queryName.trim() === "") return "";
         var auxQueryName = queryName.split(" ");
         var newQueryName = "";
@@ -96,7 +103,6 @@ app.controller('MainController', ['$scope', 'focusController', '$http', function
             if (auxQueryName[i] !== "")
                 newQueryName = newQueryName + "+" + auxQueryName[i];
         };
-        // console.log(newQueryName.replaceAll(' ', '+').replace('+', ''))
         return newQueryName.replace('+', '');
     }
 
@@ -113,8 +119,9 @@ app.controller('MainController', ['$scope', 'focusController', '$http', function
 
     $scope.focus = function ($event, $originalEvent, item) {
         var _lastSelectedIndex = $event.currentTarget.id;
+        console.log('prjfj')
         $($event.currentTarget).css({
-            border: "5px solid #0054A5",
+            border: "5px solid black",
             opacity: "0.7",
             "border-radius": "20px"
         });
@@ -127,6 +134,9 @@ app.controller('MainController', ['$scope', 'focusController', '$http', function
             opacity: "1"
         });
     };
+
+    // $scope.change('')
+    
 
 
 }]);
