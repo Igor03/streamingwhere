@@ -1,13 +1,15 @@
 <div class="title-poster">
-    <h2> {{ focusedItem.title }} </h2>
+    <h2 class="title-info"> {{ focusedItem.title }} </h2>
     <img src="{{focusedItem.poster}}" alt="{{focusedItem.name}}" style="width:45%; height:45%">
 </div>
 
 <div class="description">
-    <label> {{focusedItem.description}} </label>
+    <h2 class="title-info"> Sinopse </h2>
+    <label style="display: block; margin-left:30px; margin-right:30px"> {{focusedItem.description}} </label>
 </div>
 
 <div class="providers">
+    <h2 class="title-info"> Onde assistir </h2>
     <div ng-repeat="provider in focusedItem.providers">
         <img ng-src="{{provider.iconUrl}}">
     </div>

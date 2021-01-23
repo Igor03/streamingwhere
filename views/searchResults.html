@@ -1,9 +1,8 @@
 <div class="wrapper">
     <caph-list items="item in formatedResults" container-class="container" wrapper-class="wrapper"
         direction="horizontal">
-        <!-- <label ng-if="[$index]==currentSelectedId"> kkk </label> -->
         <div class="item" id="{{$index}}" focusable="{name: '{{$index}}'}" button-class="caph-button"
-            on-blurred="blur($event,$originalEvent)" on-focused="loadDetails(item)"
+            on-blurred="blur($event,$originalEvent)" on-focused="loadDetails(item, $event)"
             on-selected="selectItem($event, item)">
             <img class=" img-catalog-container " src="{{item.poster}}">
         </div>

@@ -32,23 +32,19 @@
 
         <!-- <input ng-model="query"> -->
 
-        <div style="padding: 20px; height:500px">
-            
+        <div style="padding: 20px; height:500px">            
             <div class="search-bar">
                 <ng-include src="getTemplatePath('searchbar')"></ng-include>
             </div>
 
-            <div class="product-detail" style="width: 100%; height:90%;">
+            <div class="product-detail">
                 <ng-include src="getTemplatePath('itemdetail')" />
             </div>          
         </div>
 
-
         <div class="container" style="align-items: center; position:fixed;">
             <ng-include src="getTemplatePath('searchresults')" />
         </div>
-
-
 
         <div class="footer">
             <ng-include src="getTemplatePath('footer')"> </ng-include>

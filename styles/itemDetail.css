@@ -1,14 +1,30 @@
 .title-poster {
     float: left;
     width: 45%;
-    border-style: solid;
 }
 
 .providers {
-    width: 45%;
+    width: 25%;
     float: right;
 }
 
 .description {
-    width: 10%;
+    width: 30%;
+    float: right;
 }
+
+
+.title-info {
+    color: white;
+    margin:20px;
+    padding: 10px;
+    background: black;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+
+
+
+
+    
